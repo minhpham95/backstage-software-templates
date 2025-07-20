@@ -39,8 +39,8 @@ spec:
           app_name: ${{parameters.component_id}}
           app_env: ${{parameters.environment}}
 
-    - id: build and push Docker
-      action: docker:build
+    # - id: build and push Docker
+    #   action: docker:build
 
 # Create github repo
     - id: publish
