@@ -29,7 +29,7 @@ spec:
             - prod
 
   steps:
-# Pass parameter from previous step to /template
+# Render template and Pass parameter from previous step to /template
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
@@ -52,7 +52,7 @@ spec:
         description: This is ${{ parameters.component_id }}
         repoUrl: github.com?owner=minhpham-95&repo=${{parameters.component_id}}
         protectDefaultBranch: false
-        # repoVisibility: public
+        repoVisibility: public
 
 # Create catalog and register it back to backstage
     - id: register
