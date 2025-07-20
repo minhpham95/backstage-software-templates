@@ -29,6 +29,7 @@ spec:
             - prod
 
   steps:
+# Pass parameter from previous step to /template
     - id: fetch-base
       name: Fetch Base
       action: fetch:template
@@ -38,6 +39,10 @@ spec:
           app_name: ${{parameters.component_id}}
           app_env: ${{parameters.environment}}
 
+    - id: build and push Docker
+      action: docker:build
+
+# Create github repo
     - id: publish
       name: Publish
       action: publish:github
@@ -45,10 +50,11 @@ spec:
         # allowedHosts:
         #   - github.com
         description: This is ${{ parameters.component_id }}
-        repoUrl: github.com?owner=minhpham95&repo=${{parameters.component_id}}
+        repoUrl: github.com?owner=minhpham-95&repo=${{parameters.component_id}}
         protectDefaultBranch: false
         # repoVisibility: public
 
+# Create catalog and register it back to backstage
     - id: register
       name: Register
       action: catalog:register
