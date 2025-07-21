@@ -5,7 +5,7 @@ metadata:
   description: Python app - ${{values.app_name}} that return api data using Flask
   # Example for optional annotations
   annotations:
-    github.com/project-slug: minhpham95/${{values.app_name}}
+    github.com/project-slug: minhpham-95/${{values.app_name}}
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
